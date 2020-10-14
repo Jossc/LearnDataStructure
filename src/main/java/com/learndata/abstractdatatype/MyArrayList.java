@@ -137,5 +137,29 @@ public class MyArrayList<T> implements Iterable<T> {
         MyArrayList myArrayList = new MyArrayList();
         myArrayList.add("aaa");
     }
+
+    private class IterableList<T> implements Iterable<T> {
+
+        private int current = 0;
+
+
+        public boolean hasNext() {
+            return current < size();
+        }
+
+        public T next() {
+            return (T) array[current++];
+        }
+
+        public void remove() {
+            MyArrayList.this.remove(--current);
+            ;
+        }
+
+        @Override
+        public Iterator iterator() {
+            return (Iterator) new MyArrayList<T>();
+        }
+    }
 }
 
