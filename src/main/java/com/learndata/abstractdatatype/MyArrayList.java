@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * 抽象数据类型
@@ -76,6 +77,7 @@ public class MyArrayList<T> implements Iterable<T> {
      * @param v
      */
     private void add(int index, T v) {
+
         if (array.length == size()) {
             // 如果位置相等了说明这里需要扩容了
             ensureExplicitCapacity(size() >> 1);
